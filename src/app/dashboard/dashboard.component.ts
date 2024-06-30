@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuItem } from '../Models/dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  menuItems: MenuItem[] = [
+    { title: 'Mouse Tracking', routerLink: 'three-1' },
+    { title: 'Mouse Interation', routerLink: 'three-2' },
+  ];
 }

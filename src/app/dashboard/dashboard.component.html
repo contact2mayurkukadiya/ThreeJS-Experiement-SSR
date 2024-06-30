@@ -1,1 +1,22 @@
-<app-menu></app-menu>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <span>Dashboard</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="container" [hasBackdrop]="true">
+    <mat-drawer #drawer [mode]="'over'">
+        <mat-nav-list class="menu-list">
+            @for (item of menuItems; track $index) {
+            <a mat-list-item [routerLink]="item.routerLink" routerLinkActive="active">{{item.title}}</a>
+            }
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
